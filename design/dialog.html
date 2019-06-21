@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dialog</title>
+    <style type="text/css">
+    dialog {
+        padding: 0;
+        width: 300px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 5px;
+        border: 0;
+    }
+
+    dialog::backdrop {
+        /*background-color: rgba(0, 0, 0, 0.1);*/
+        background-color: green;
+    }
+    </style>
+</head>
+
+<body>
+    <dialog id="sweet-modal">
+        <h3 class="modal-header">sweet dialog</h3>
+        <div class="modal-body">
+            <p>This is a sweet dialog, which is much better.</p>
+        </div>
+        <footer class="modal-footer">
+            <button id="get-it" type="button">Get</button>
+        </footer>
+    </dialog>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+    html {
+        font-size: 14px;
+    }
+
+    #btn {
+        display: block;
+        margin-bottom: 2rem;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="btn">点击</button>
+        <input id="text_input" type="text" name="dom" value="123">
+    </div>
+    <script>
+    document.getElementById('btn').addEventListener('click', handler, false);
+
+    function handler() {
+        console.log(arguments);
+    }
+
+    document.getElementById('text_input').addEventListener('textInput', function(e) {
+        console.log('data--' + e.data);
+        console.info('inputMethod--' + e.inputMethod);
+    }, false);
+
+    window.addEventListener('hashchange',function(e) {
+        console.log(e.newURL);
+    },false)
+    </script>
+    <p class="mm">111</p>
+    <p class="mm">222</p>
+    <form action="" id="wdd" name="wdd1"></form>
+</body>
+
+</html>

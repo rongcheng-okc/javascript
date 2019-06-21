@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>Hello , I am test promise .</h1>
+    <script>
+        window.onload=function() {
+            var myFirstPromise = new Promise( function(resolve, reject){
+                setTimeout( function(){
+                    resolve("成功!"); //代码正常执行！
+                }, 1500);
+            });
+ 
+            myFirstPromise.then( function(successMessage){
+                document.write("Yay! " + successMessage);
+                // resolve(123456);
+            }).then(function success1(mes) {
+                console.log(mes);
+            });
+
+            // var p = Promise.reject('出错了');
+ 
+            // p.catch(function (s){
+            //     console.log(s+s);
+            // });
+
+            function test1() {
+                setTimeout( function() {
+                resolve('wdd');
+                }, 3000);
+            }
+
+            // var jsPromise = Promise.resolve(test1());
+            // jsPromise.then(function(message) {
+            //     console.log(message);
+            // });
+        };
+    </script>
+</body>
+</html>

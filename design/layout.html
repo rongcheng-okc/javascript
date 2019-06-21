@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Document</title>
+	<style>
+		/*.parent{
+			background-color: green;
+			width: 100%;
+			text-align: center;
+		}
+		.child{
+			background-color: red;
+			display: inline;
+			height: 5rem;
+		}
+
+		.mulit-line{
+			display: table-cell;
+			background-color: green; 
+			margin: 1rem auto;
+			vertical-align: middle;
+		}
+
+		.child2{
+			position: absolute;
+			left: 0; right: 0; top: 0; bottom: 0;
+			margin:auto;
+			height: 3rem;
+			width: 3rem;
+			background: red;
+		}
+
+		.layout{
+  			/*   width: 960px; *//*设置width当浏览器窗口宽度小于960px时，单列布局不会自适应。*/
+    	/*	max-width: 960px;
+    		margin: 0 auto;
+  		}*/
+
+  		/*.sub{
+    width: 100px;
+    float: left;
+}
+.extra{
+    width: 200px;
+    float: right;
+}
+.main{
+    margin-left: 100px; 
+    margin-right: 200px;
+}*/
+
+.main {        
+    float: left;       
+    width: 100%; 
+    background-color: red;  
+ }  
+ .sub {       
+    float: left;        
+    width: 190px;        
+    margin-left: -100%;               
+    position: relative;  
+    left: -190px;  
+    background-color: yellow;
+}   
+.extra {        
+    float: left;        
+    width: 230px;        
+    margin-left: -230px; 
+    position: relative; 
+    right: -230px;  
+    background-color: green;
+ }
+#bd {        
+    padding: 0 230px 0 190px; width: 100%;;  
+ }
+
+
+.clearfloat:after{
+display:block;
+height:0;
+content:"";
+clear:both;
+visibility:hidden;
+}
+	</style>
+</head>
+<body>
+	<!-- <div class="parent">
+        <div class="child">wdd</div>
+    </div>
+
+    <div class="mulit-line">
+        多行文本的布局测试不知道效果怎样，反正今天雷霆爆锤了勇士就是昊阳的，干他娘的勇士，干软蛋
+        你行你上呀，我行当然我上了。
+        可不是吗
+        <br/>
+    </div>
+
+    <div class="parent2" style="display: block; background: gren;position: relative; height: 200px;">
+        <div class="child2">wdd</div>
+    </div> -->
+
+    <!-- <div class="layout">
+    	<div id="header">头部</div>
+    	<div id="content">内容</div>
+    	<div id="footer">尾部</div>
+	</div> -->
+
+	<!-- 必须是最后一个渲染 -->
+	<!-- <div id="content">
+    	<div class="sub">sub</div>
+    	<div class="extra">extra</div>
+    	<div class="main">main</div>
+	</div> -->
+	 <!-- <div id="bd">         
+    <div class="main">main</div>        
+    <div class="sub">sub</div>        
+    <div class="extra">extra</div>  
+</div> 
+
+<div style="display: block;">
+<div style="position: relative; float: left; background-color: red; width: 200px;">11</div>
+<div style="position: relative; float: left; background-color: green; width: 150px;">11</div>	
+</div> -->
+
+<div style="width: 100%;">
+	<div style="float: left; width: 200px; background-color: green;">1</div>
+	<div style="margin-left: 200px; background-color: red;">2</div>
+</div>
+<br>
+<div style="width: 100%;">
+	<div style="float: right; width: 200px; background-color: green;">1</div>
+	<div style="margin-right: 200px; background-color: red;">2</div>
+</div>
+<br>
+
+<div style="width: 100%; margin-bottom: 20px;">
+	<div style="float: left; width: 200px; background-color: green;">1</div>
+	<div style="margin-left: 200px; margin-right: 100px; background-color: red;">2</div>
+	<div style="float: right; width: 100px; background-color: yellow;">3</div>
+</div>
+<br>
+
+<div style="width: 100%; margin-bottom: 20px;">
+	<div style="float: left; width: 200px; background-color: green;">1</div>
+	<div style="float: right; width: 100px; background-color: yellow;">3</div>
+	<div style="margin-left: 200px; margin-right: 100px; background-color: red;">2</div>
+</div>
+<br>
+
+<div style="width: 100%; margin-bottom: 20px;">
+	<div style="float: left; width: 200px; background-color: green;">1</div>
+	<div style="float: left; width: 100px; background-color: blue;">3</div>
+	<div style="float: right; width: 100px; background-color: yellow;">3</div>
+	<div style="margin-left: 300px; margin-right: 100px; background-color: red;">2</div>
+</div>
+<br>
+
+<div style="width: 100%; padding-left: 200px;">
+	<div style="width: 100%; float: left; background-color: red;">1</div>
+	<div style="background-color: yellow; width: 200px; margin-left: -100%; position: relative; left: -200px; float: left;">2</div>
+	<!-- <div style="background-color: blue;">3</div> -->
+</div>
+<br>
+<div style="margin: 20px 100px; width: 500px; background-color: green;">
+	<div style="width: 200px; height: 150px; background-color: red; display: inline-block;"></div>
+	<div style="width: 200px; height: 150px; background-color: blue; display: inline-block;"></div>
+</div>
+
+<br>
+<div class="clearfloat" style="margin: 20px 100px; width: 500px; background-color: green; border: 1px black solid; ">
+	<div style="width: 100px; height: 100px; background-color: red; float: left;"></div>
+	<div style="width: 100px; height: 100px; background-color: blue; float: right;"></div>
+	<!-- <div style="clear:both;"></div> -->
+</div>
+</body>
+</html>

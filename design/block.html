@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>block</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+    .inline-table {
+        display: inline-table;
+        width: 128px;
+        height: 100px;
+        margin-left: 10px;
+        border: 1px solid #cad5eb;
+    }
+
+    .inline-table>p {
+        display: table-cell;
+    }
+    </style>
+</head>
+
+<body>
+    和文字平起平坐的表格：
+    <div class="inline-table">
+        <p>第1列</p>
+        <p>第2列</p>
+    </div>
+
+    <div style="width: 100px; border: 1px solid red; white-space: nowrap;">
+    	<div style="display: inline-block;">hello i am try to see a limited width blocked div contain a inline text </div>
+    </div>
+</body>
+
+</html>

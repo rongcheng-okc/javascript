@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>节流防抖</title>
+</head>
+
+<body>
+    <div id="wrap" style="width: 250px; height: 400px; overflow-y: auto;">
+        <div id="content" style="width: 100%; height: 5000px; background-color: green;"></div>
+    </div>
+    <script type="text/javascript">
+    //实现防抖函数
+    function debouncing(fn, waitTime) {
+        let timer = undefined;
+        return function() {
+            let context = this;
+            let args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                fn.apply(context, args);
+            }, waitTime)
+        }
+    }
+
+    function throttling(fn, intervalTime) {
+        let inInterval = false;
+        return function() {
+            let context = this;
+            let args = arguments;
+            if (!inInterval) {
+                fn.apply(context, args);
+                inInterval = true;
+                setTimeout(function() {
+                    inInterval = false;
+                }, intervalTime)
+            }
+        }
+    }
+
+
+    //scroll事件的处理函数
+    function scrollHandler(event) {
+        console.log(new Date(event.timeStamp));
+    }
+
+    //document的scroll事件上使用防抖函数
+    document.getElementById('wrap').addEventListener('scroll', throttling(scrollHandler, 500), false);
+    // document.getElementById('wrap').addEventListener('scroll', function() {
+    //     var content = document.getElementById('content').getBoundingClientRect().top;
+    //     console.log(content)
+    // }, false);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas</title>
+    <style>
+        .time-line-bg {
+            width: 900px;
+            height: 300px;
+            border: 1px solid blue;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time-line-bg" id="time_line_bg">
+        <canvas id="time_line"></canvas>
+    </div>
+    <button id="btn_1">X1</button>
+    <button id="btn_4">X4</button>
+    <script>
+        let elCanvasBg = document.getElementById('time_line_bg');
+        let elCanvasBgW = elCanvasBg.getBoundingClientRect().width;
+        let elCanvasBgH = elCanvasBg.getBoundingClientRect().height;
+
+        let elCanvas = document.getElementById('time_line');
+        elCanvas.setAttribute('width', elCanvasBgW);
+        elCanvas.setAttribute('height', elCanvasBgH);
+
+        let elCanvasW = elCanvas.getBoundingClientRect().width;
+        let ctx = elCanvas.getContext('2d');
+
+        function draw() {
+            ctx.beginPath();
+            ctx.moveTo(0, 150);
+            ctx.lineTo(elCanvasW, 150);
+            // ctx.closePath();
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(100, 140);
+            ctx.lineTo(100, 160);
+            // ctx.closePath();
+            ctx.lineWidth = 20;
+            ctx.stroke();
+
+            ctx.fillStyle = 'lightgrey';
+            ctx.fillRect(0, 0, 800, 100);
+
+            ctx.fillStyle = 'green';
+            ctx.fillRect(500, 0, 10, 100);
+        }
+
+        // elCanvas.addEventListener('click', e => {
+        //     console.log(e);
+        // }, false);
+
+        document.getElementById('btn_1').addEventListener('click', () => {
+            elCanvas.setAttribute('width', elCanvasBgW);
+            draw();
+        }, false);
+
+        document.getElementById('btn_4').addEventListener('click', () => {
+            elCanvas.setAttribute('width', elCanvasBgW * 4);
+            draw();
+        }, false);
+    </script>
+</body>
+
+</html>

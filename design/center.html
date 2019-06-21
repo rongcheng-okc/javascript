@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>居中</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style type="text/css">
+	    html,body{ margin: 0; padding: 20px; }
+		p{ margin: 0; padding: 0; }
+		.parent{margin-bottom: 20px; }
+		.parent-margin{ width: 100%; border: solid 1px red; }
+		.child-margin{ width: 200px; height: 100px; background: green; margin: 0 auto; color: white; }
+
+		.parent-float{ position: relative; width: 100%; border: solid 1px red; }
+		.child-float{ position: absolute; left: 0; right: 0; margin: 0 auto; width: 200px; height: 100px; background: green;  color: white; }
+
+		.child3{ width: 100px;height: 100px; 
+			margin: auto; background-color: green;
+			position: absolute;
+			top: 0; right: 0; bottom: 0; left: 0; 
+		}
+	</style>
+</head>
+<body>
+	<!-- <div class="parent-margin parent">
+		<div class="child-margin">
+			<p>margin: 0 auto;</p> 
+			<p>//水平居中</p>
+		</div>
+	</div>
+
+	<div class="parent-float parent">
+		<div class="child-float">
+			<p>position: absolute;</p>
+			<p>left: 0; right: 0;</p>
+			<p>margin: 0 auto;</p>
+		</div>
+	</div> -->
+
+	<!-- <div class="parent3 parent">
+		<div class="child3"></div>
+	</div> -->
+
+	<div class="parent" style="display: table-cell; vertical-align: middle; text-align: center; height: 200px; width: 400px; border: 1px solid red;">
+		<div style="background-color: green; width: 200px; height: 100px; display: inline-block;"></div>
+	</div>
+</body>
+</html>

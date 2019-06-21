@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>history</title>
+	<style type="text/css">
+    #page { width: 520px; }
+    .nav  { width: 200px; float: right; background-color: blue;}
+    .main { width: 200px; float: left; padding-left: 110px; background-color: red;}    
+    .sub  { width: 100px; float: left; margin: 10px 0 10px -100px; background-color: green;}    
+    .main { border: 1px solid #000; background-color: grey; }
+    .nav, .sub { border: 1px dashed #000; height: 300px; }    
+    .sub { height: 280px; }
+</style>
+</head>
+<body>
+	<div id="page">
+    	<div class="main">
+        	<div class="sub"></div>
+    	</div>
+    	<div class="nav"></div>
+	</div>
+
+	<script type="text/javascript">
+		// alert(toRGB("#0000FF"));          // 输出 rgb(0, 0, 255)
+		// alert(toRGB("invalid"));          // 输出 invalid
+		// alert(toRGB("#G00"));              // 输出 #G00
+
+		function toRGB(s) {
+			//判断可处理的字符串，不可处理的直接返回 'invalid',正则匹配
+			var reg=/^(#)[0-9A-F]{3,6}$/,
+				a;
+			if(reg.test(s)) {
+				a=Array.prototype.slice.call(s);
+
+				if(s.length===4) {
+					s=a[1]+a[1]+a[2]+a[2]+a[3]+a[3];
+				} else {
+					s=a.splice(1).join('');
+				}
+			} else {
+				return 'invalid';	
+			}
+		}
+	</script>
+</body>
+</html>

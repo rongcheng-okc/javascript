@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas_Background</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+    html, body{
+    	margin: 0; padding: 0; 
+    }
+	#canvas_wrap {
+    	width: 100%;
+    	height: 100vh;
+	}
+
+	#canvas {
+   		position: absolute;
+    	z-index: -1;
+	}
+</style>
+</head>
+	<div id="canvas_wrap">
+		<canvas id="canvas"></canvas>
+	</div>
+<body>
+    <script type="text/javascript">
+    let parentDiv = document.getElementById('canvas_wrap').getBoundingClientRect(),
+        offsetW = parentDiv.width,
+        offsetH = parentDiv.height,
+        canvasEle = document.getElementById('canvas'),
+        ctx = canvasEle.getContext('2d'),
+        grd = ctx.createLinearGradient(0, 0, offsetW, 0);
+
+    canvasEle.setAttribute('width', offsetW);
+    canvasEle.setAttribute('height', offsetH);
+
+    grd.addColorStop(0, '#4AAAF9'); // 开始颜色
+    grd.addColorStop(1, '#2F4EFE'); // 结束颜色
+
+    // 绘制矩形部分
+    ctx.fillStyle = grd; // 填充使用自定义的渐变规则
+    ctx.fillRect(0, 0, offsetW, 200);
+
+    // 绘制弧形部分
+    ctx.beginPath();
+    ctx.moveTo(0, 200);
+    ctx.quadraticCurveTo(offsetW / 2, 600, offsetW, 200);
+    ctx.fill();
+
+    // 绘制弧线
+    ctx.moveTo(0, 200);
+    ctx.quadraticCurveTo(offsetW / 2, 660, offsetW, 300);
+    ctx.strokeStyle = grd;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    </script>
+</body>
+
+</html>
